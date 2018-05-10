@@ -11,7 +11,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 /**
  *
@@ -23,6 +28,8 @@ public class menuPrincipalController implements Initializable {
     private TextField txtNumero1, txtNumero2, txtResultado;
      @FXML
      private Button btnSoma;
+    @FXML
+    private Label label;
     
     @FXML
     private void Somar(ActionEvent event) {
@@ -38,5 +45,25 @@ public class menuPrincipalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void AbrirCadastroAluno(ActionEvent event) {
+        try{
+    FXMLLoader fxmlLoader = new FXMLLoader();
+    fxmlLoader.setLocation(getClass().getResource("Aluno.fxml"));
+    Scene scene = new Scene(fxmlLoader.load(),900,682);
+    Stage stage = new Stage();
+    stage.setTitle("Cadastrar Aluno");
+    stage.setScene(scene);
+    stage.show();
+}
+catch(IOException e){
+
+}
+    }
+
+    @FXML
+    private void FecharProjeto(ActionEvent event) {
+    }
     
 }
